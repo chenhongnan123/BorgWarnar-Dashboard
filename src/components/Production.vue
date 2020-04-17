@@ -1,34 +1,34 @@
 <template>
   <div style="height:100%;" class="production">
-      <p class="d-flex justify-space-between px-4">
+      <p class="d-flex justify-space-between" style="padding:0 .16rem;">
         <span>{{$t("common.production")}}</span>
         <span>RUNNING</span>
       </p>
-      <v-row justify="space-between" class="pt-3 pl-4">
+      <v-row justify="space-between" style="padding:.12rem 0 0 .16rem;">
         <v-col cols="6">
           <p>{{$t("common.availability")}}</p>
           <h3>98.32%</h3>
-          <p class="mt-7">{{$t("common.performance")}}</p>
+          <p style="margin-top:.28rem;">{{$t("common.performance")}}</p>
           <h3>85.77%</h3>
-          <p class="mt-5">{{$t("common.quantity")}}</p>
+          <p style="margin-top:.2rem;">{{$t("common.quantity")}}</p>
           <h3>80.49%</h3>
         </v-col>
         <v-col cols="6">
           <p>{{$t("common.operator")}}</p>
           <h3>Li Wei</h3>
-          <v-row class="mt-5">
+          <v-row style="margin-top:.2rem;">
             <v-col cols="2">
                <p>{{$t("common.oee")}}</p>
             </v-col>
             <v-col  cols="10">
               <v-progress-circular
                 :rotate="-90"
-                :size="140"
-                :width="22"
+                :size="150*count"
+                :width="22*count"
                 :value="75"
                 color="#FF3800"
               >
-              <div style="width:100px;color:#fff;font-size:34px;word-wrap: break-word;text-align: center;line-height: 40px;">{{ 75.23+'%' }}</div>
+              <div style="width:1rem;color:#fff;font-size:.34rem;word-wrap: break-word;text-align: center;line-height: .4rem;">{{ 75.23+'%' }}</div>
               </v-progress-circular>
             </v-col>
           </v-row>
@@ -43,16 +43,10 @@ export default {
   name: 'Production',
   data(){
     return {
+      count:document.documentElement.clientWidth/1920
     }
   },
   props:['type'],
-  computed:{
-    ...mapState({
-      title: state => state.common.title,
-      isAutoRunning: state => state.common.isAutoRunning,
-    })
-  }
-  
 }
 </script>
 
@@ -60,25 +54,25 @@ export default {
 <style scoped lang="scss">
   .production{
     background: #283B52;
-    border-radius: 18px;
+    border-radius: .18rem;
     >p{
-      height: 44px;
+      height: .44rem;
       background:#37C102;
-      border-radius: 8px;
-      font-size: 20px;
-      line-height: 44px;
+      border-radius: .08rem;
+      font-size: .2rem;
+      line-height: .44rem;
     }
     >.row{
       >.col{
         p{
-          font-size: 18px;
-          line-height: 21px;
+          font-size: .18rem;
+          line-height: .21rem;
           opacity: 0.7;
-          margin-bottom: 10px;
+          margin-bottom: .1rem;
         }
         >h3{
-          font-size: 28px;
-          line-height: 32px!important;
+          font-size: .28rem;
+          line-height: .32rem!important;
         }
       }
     }

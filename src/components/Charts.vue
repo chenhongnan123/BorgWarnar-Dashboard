@@ -76,7 +76,7 @@ export default {
         // this.data.title.text =  newVal.title;
       },
       deep:true,
-      // immediate: true,
+      immediate: true,
     }
     
   },

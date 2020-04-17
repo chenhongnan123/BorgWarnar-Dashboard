@@ -1,6 +1,6 @@
 <template>
   <header>
-    <img src="../assets/customerLogo.png" style="height:50px;"/>
+    <img src="../assets/customerLogo.png" style="height:.5rem;"/>
     <h2>{{title}}</h2>
     <img src="../assets/shopworx.png" style="height:100%;"/>
   </header>
@@ -17,29 +17,27 @@ export default {
     })
   },
   mounted(){
-    // console.log(this.$i18n.locale)
     // this.$i18n.locale = 'zh'
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   header{
     position: fixed;
     width: 100%;
-    height: 80px;
+    height: .8rem;
     background: #fff;
     top: 0;
     color: rgba(0, 0, 0,.7);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 .2rem;
     box-sizing: border-box;
-    line-height:80px;
+    line-height:.8rem;
     h2{
-      font-size: 36px;
+      font-size: .36rem;
       color: rgba(0,0,0,0.87);
     }
   }

@@ -46,10 +46,11 @@ export default {
       >.col{
         opacity: 0.7;
         background: #0E1826;
-        border: 1px solid #778DA8;
-        height: 44px;
+        border: .01rem solid #778DA8;
+        height: .44rem;
+        line-height: .30rem;
         box-sizing: border-box;
-        font-size: 24px;
+        font-size: .24rem;
       }
       >.col:nth-child(1){
         border-right:none;

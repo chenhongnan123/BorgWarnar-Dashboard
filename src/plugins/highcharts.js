@@ -3,7 +3,7 @@ import Highcharts from 'highcharts';
 import HighchartsVue from 'highcharts-vue';
 import HighchartsMore from 'highcharts/highcharts-more';
 import solidGauge from 'highcharts/modules/solid-gauge';
-
+// const count = document.documentElement.clientWidth/1920;
 Highcharts.theme = {
   colors: ['#55D802', '#FFA100', '#FF3800', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4'],
   chart: {
@@ -19,9 +19,9 @@ Highcharts.theme = {
     labels: {
       style: {
         color: '#fff',
-        "font-size":'20px',
+        "font-size":20*count,
       },
-      y:20
+      y:30*count
 
     }
   },
@@ -29,9 +29,9 @@ Highcharts.theme = {
     labels: {
       style: {
         color: '#fff',
-        "font-size":'20px',
+        "font-size":20*count,
       },
-      y:10
+      y:10*count
     },
     
   },
@@ -41,12 +41,13 @@ Highcharts.theme = {
     verticalAlign: 'middle',
     itemStyle: {
       color: '#fff',
-      width:100,
-      fontSize:20,
-      padding:120,
+      // width:100*count,
+      fontSize:20*count,
+      padding:120*count,
       transform:'translateY(-5px)'
     },
-    symbolPadding: 20,
+    symbolPadding: 20*count,
+    x:-20*count
     // symbolHeight:30,
   },
   tooltip: {
@@ -68,7 +69,7 @@ Highcharts.theme = {
         dataLabels: {
             enabled: true,
             style:{
-              fontSize:20,
+              fontSize:20*count,
               color:'#fff'
             }
         }

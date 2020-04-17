@@ -1,11 +1,11 @@
 <template>
   <div style="height:100%;" class="line-status">
-      <div class="sub-title pl-5">
+      <div class="sub-title">
         <span>{{$t(type+"Station.avgCt")}}</span>
         <div class="time-moudle-container"><TimeMoudle/></div>
       </div>
     <div>
-      <div class="mt-4">
+      <div style="margin-top:.2rem;">
         <Charts :chartsData = 'chartsData'/>
       </div>
     </div>
@@ -23,23 +23,23 @@ export default {
       chartsData:{
         // type:'column',
         xData:{
-          categories: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+          categories: ['T1', 'T2', 'T3', 'T4', 'T5',],
         },
         series: [{
-            name: '东京',
-            data: [7.0, 6.9, 9.5, 14.5]
+            name: 'CT',
+            data: [70, 69, 95, 14.5]
         }],
         yAxis:{
           plotLines: [{
-            value: 15,
+            value: 90,
             color: '#FFA100',
-            width: 2,
+            width: 2*count,
             label: {
                 text: 'IDEAL CT: 15',
                 align: 'center',
                 style: {
                     color: '#fff',
-                    fontSize:20
+                    fontSize:20*count
                 }
             }
           }]
@@ -50,18 +50,11 @@ export default {
   },
   props:['type'],
   mounted(){
-    this.chartsData = {...this.chartsData}
+    // this.chartsData = {...this.chartsData}
   },
   components:{
     TimeMoudle,Charts
   },
-  computed:{
-    ...mapState({
-      title: state => state.common.title,
-      isAutoRunning: state => state.common.isAutoRunning,
-    })
-  }
-  
 }
 </script>
 
@@ -69,7 +62,7 @@ export default {
 <style scoped lang="scss">
   .line-status{
     background: #283B52;
-    border-radius: 18px;
+    border-radius: .18rem;
     .sub-title{
       position: relative;
       .time-moudle-container{

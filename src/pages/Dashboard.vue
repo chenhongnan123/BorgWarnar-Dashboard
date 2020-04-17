@@ -18,7 +18,7 @@ export default {
     }),
   },
   created(){
-    // this.setTitle('KPI Report');
+    this.setTitle(this.$t("assemblyStation.title"))
   }
 }
 </script>

@@ -1,28 +1,28 @@
 <template>
   <div style="height:100%;" >
-    <v-row  no-gutters style="height:320px;">
-        <v-col cols='4' class="pr-2"  style="height:320px;">
+    <v-row  no-gutters style="height:3.2rem;">
+        <v-col cols='4' style="height:3.2rem;padding-right:.1rem;">
           <Production type='assembly'/>
         </v-col>
-        <v-col cols='8'  style="height:320px;">
+        <v-col cols='8'  style="height:3.2rem;">
           <LineStatus type='assembly'/>
         </v-col>
     </v-row>
-    <v-row  no-gutters style="height:320px;" class="mt-2">
-        <v-col cols='4' class="pr-2">
+    <v-row  no-gutters style="height:3.2rem;margin-top:.1rem;">
+        <v-col cols='4'  style="padding-right:.1rem;">
           <PlanInfo type='assembly'/>
         </v-col>
-        <v-col cols='8' style="height:320px;background:#283B52;border-radius:18px;">
+        <v-col cols='8' style="height:3.2rem;background:#283B52;border-radius:.18rem;">
           <div>
-            <p  class="sub-title pl-5">{{$t("assemblyStation.quantityTrend")}}</p>
-            <div  style="height:20vh" class="pt-4">
+            <p  class="sub-title">{{$t("assemblyStation.quantityTrend")}}</p>
+            <div style="padding-top:.1rem;">
               <Charts :chartsData = 'chartsData'/>
             </div>
           </div>
         </v-col>
     </v-row>
-    <div  style="height:320px;background:#283B52;border-radius:18px;position:relative;" class="mt-2">
-      <p class="sub-title pl-5">{{$t("assemblyStation.lineStatus")}}</p>
+    <div  style="height:3.2rem;background:#283B52;border-radius:.18rem;position:relative;margin-top:.1rem;">
+      <p class="sub-title">{{$t("assemblyStation.lineStatus")}}</p>
       <div  class="line-sign">
         <img src="../assets/line.png"  style="height:100%">
         <p 
@@ -36,11 +36,11 @@
       <div class="cicle-sign-container">
          <div>
           <span class="circle cicle-sign"></span>
-          <span  class="cicle-sign cicle-sign-text">NORMAL<br/>PRODUCTION</span>
+          <span  class="cicle-sign cicle-sign-text">{{$t("common.normal")}}<br/>{{$t("common.production")}}</span>
         </div>
         <div>
           <span class="circle cicle-sign" style="background:#D0021B"></span>
-          <span  class="cicle-sign cicle-sign-text">ABNORMAL<br/>PRODUCTION</span>
+          <span  class="cicle-sign cicle-sign-text">{{$t("common.abnormal")}}<br/>{{$t("common.production")}}</span>
         </div>
       </div>
     </div>
@@ -64,27 +64,39 @@ export default {
           // height:'17%'
         },
         xData:{
-          categories: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+          categories: ['13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00',],
         },
         series: [{
-            name: '东京',
-            data: [7.0, 6.9, 9.5, 14.5]
+            name: 'PRODUCED',
+            data: [70, 69, 95, 145]
         }, {
-            name: '伦敦',
-            data: [3.9, 4.2, 5.7, 8.5]
+            name: 'REALISTIC',
+            data: [39, 42, 57, 85]
+        }, {
+            name: 'IDEAL CT',
+            data: [23, 32, 47, 65]
         }],
       },
       lineStatusList:[
-        {name:'10.1',type:1,top:'23%',left:'1%'},
-        {name:'20.1',type:0,top:'23%',left:'7.5%'},
-        {name:'20.2',type:0,top:'23%',left:'10.5%'},
-        {name:'40.1',type:1,top:'23%',left:'13%'},
-        {name:'40.2',type:1,top:'23%',left:'15%'},
-        {name:'40.3',type:1,top:'23%',left:'17%'},
-        {name:'40.4',type:0,top:'23%',left:'19.5%'},
-        {name:'60.1',type:0,top:'23%',left:'22.5%'},
-        {name:'60.2',type:1,top:'23%',left:'25%'},
-        {name:'60.3',type:1,top:'23%',left:'27.5%'},
+        {name:'10.1',type:1,top:'23%',left:'20%'},
+        {name:'20.1',type:0,top:'23%',left:'25%'},
+        {name:'20.2',type:0,top:'23%',left:'28.5%'},
+        {name:'40.1',type:1,top:'23%',left:'32%'},
+        {name:'40.2',type:1,top:'23%',left:'34%'},
+        {name:'40.3',type:1,top:'23%',left:'36%'},
+        {name:'40.4',type:0,top:'23%',left:'38.5%'},
+        {name:'60.1',type:0,top:'23%',left:'41%'},
+        {name:'60.2',type:1,top:'23%',left:'44%'},
+        {name:'60.3',type:1,top:'23%',left:'46.5%'},
+        {name:'70.1',type:1,top:'23%',left:'49%'},
+        {name:'70.2',type:1,top:'23%',left:'52.5%'},
+        {name:'70.3',type:1,top:'23%',left:'55%'},
+        {name:'70.4',type:1,top:'23%',left:'57%'},
+        {name:'70.5',type:1,top:'23%',left:'60%'},
+        {name:'75.1',type:1,top:'23%',left:'62%'},
+        {name:'80.5',type:1,top:'23%',left:'65%'},
+        {name:'30.1',type:1,top:'66%',left:'20%'},
+        {name:'30.2',type:1,top:'66%',left:'24%'},
       ]
     }
   },
@@ -92,7 +104,7 @@ export default {
     Production,LineStatus,PlanInfo,Charts
   },
   mounted(){
-    this.chartsData = {...this.chartsData}
+    // this.chartsData = {...this.chartsData}
   },
   computed:{
   }
@@ -105,7 +117,7 @@ export default {
   .line-sign{
     position:relative;
     text-align: center;
-    height: 276px;
+    height: 2.76rem;
     >img{
       height: 100%;
     }
@@ -118,30 +130,31 @@ export default {
   }
   .cicle-sign-container{
     position: absolute;
-    top: 115px;
-    right: 32px;
+    top: 1.15rem;
+    right: .32rem;
     >div{
-      margin-bottom: 50px;
+      margin-bottom: .5rem;
     }
   }
   .circle{
-    width:40px;
-    height:40px;
+    width:.4rem;
+    height:.4rem;
     background:#37C102;
     
     border-radius:50%;
     top:0;
     >span{
       position: absolute;
-      width: 200px;
-      height: 120px;
+      width: 2rem;
+      height: .6rem;
       display: none;
       color: #000;
-      font-size: 20px;
+      font-size: .2rem;
       background: #fff;
-      top: -120px;
-      left: -50px;
+      top: -1.2rem;
+      left: -0.5rem;
       text-align: center;
+      border-radius: .18rem;
     }
   }
   .cicle-sign{
@@ -149,8 +162,8 @@ export default {
     vertical-align: middle;
   }
   .cicle-sign-text{
-    font-size: 20px;
-    line-height: 22px;
-    margin-left: 20px;
+    font-size: .2rem;
+    line-height: .22rem;
+    margin-left: .2rem;
   }
 </style>

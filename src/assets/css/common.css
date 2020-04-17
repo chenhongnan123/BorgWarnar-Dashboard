@@ -17,13 +17,11 @@ html {overflow-y: scroll;}
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.rem2-width{
-    width: 2rem;
-}
 .sub-title{
-    height: 44px;
-    font-size: 20px;
-    line-height: 44px;
+    height: .44rem;
+    font-size: .2rem;
+    line-height: .44rem;
     background-color: #245692;
-    border-radius: 8px;
+    border-radius: .08rem;
+    padding-left: .16rem!important;
 }

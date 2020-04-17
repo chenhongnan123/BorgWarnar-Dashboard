@@ -1,12 +1,11 @@
 <template>
-  <div class="carousel">
+  <div class="carousel" @click="setAuto">
     <v-carousel
-      :cycle="false"
+      :cycle="isAutoRun"
       height="100%"
       hide-delimiter-background
       show-arrows-on-hover
       :show-arrows="!isAutoRun"
-      dark
       v-model="index"
     >
       <v-carousel-item >
@@ -55,19 +54,17 @@ export default {
   },
   computed:{
     ...mapState({
-      reportData: state => state.dashboard.reportData,
-      // isAutoRunning: state => state.common.reportData,
     }),
   },
   methods:{
     ...mapActions({
-      getReportData: 'dashboard/GET_REPORTDATA',
     }),
     ...mapMutations({
       setAutoRun: 'common/SET_AUTORUN',
       setTitle:'common/SET_TITLE'
     }),
     setAuto(){
+      console.log(111)
       this.isAutoRun = false;
       this.setAutoRun(false);
       clearTimeout(this.timeout)
@@ -88,7 +85,7 @@ export default {
     position:relative;
     color: #fff;
     .v-window-item{
-      padding: 10px 20px;
+      padding: .1rem .2rem;
     }
     .v-window__next{
       right: 0;

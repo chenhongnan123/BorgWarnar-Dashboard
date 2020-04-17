@@ -9,7 +9,6 @@
 <script>
 import "../src/assets/css/common.css";
 import Header from './components/Header'
-
 export default {
   name: 'app',
   components:{
@@ -33,14 +32,14 @@ html,body{
     // color: #2c3e50;
     font-family: Arial-BoldMT;
     height: 100%;
-    padding-top:80px;
+    padding-top:.8rem;
     box-sizing:border-box;
-    .row,.col,p{
+    p{
       margin: 0;
       padding: 0;
     }
-    
   }
 }
+
 
 </style>

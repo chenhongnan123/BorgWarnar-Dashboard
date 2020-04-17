@@ -1,28 +1,28 @@
 <template>
   <div style="height:100%;" >
-    <v-row  no-gutters style="height:320px;">
-        <v-col cols='4' class="pr-2"  style="height:320px;">
+    <v-row  no-gutters style="height:3.2rem;">
+        <v-col cols='4'  style="height:3.2rem;padding-right:.1rem;">
           <Production :type="'test'"/>
         </v-col>
-        <v-col cols='8'  style="height:320px;">
+        <v-col cols='8'  style="height:3.2rem;">
           <LineStatus type='test'/>
         </v-col>
     </v-row>
-    <v-row  no-gutters style="height:320px;" class="mt-2">
-        <v-col cols='4' class="pr-2">
+    <v-row  no-gutters  style="height:3.2rem;margin-top:.1rem;">
+        <v-col cols='4' style="height:3.2rem;padding-right:.1rem;">
           <PlanInfo type='test'/>
         </v-col>
-        <v-col cols='8' style="height:320px;background:#283B52;border-radius:18px;">
+        <v-col cols='8' style="height:3.2rem;background:#283B52;border-radius:.18rem;">
           <div>
-            <p  class="sub-title pl-5">{{$t("testStation.quantityTrend")}}</p>
-            <div  style="height:20vh" class="pt-4">
+            <p  class="sub-title">{{$t("testStation.quantityTrend")}}</p>
+            <div style="padding-top:.1rem;">
               <Charts :chartsData = 'chartsData'/>
             </div>
           </div>
         </v-col>
     </v-row>
-    <div  style="height:320px;background:#283B52;border-radius:18px;position:relative;" class="mt-2">
-      <p class="sub-title pl-5">{{$t("testStation.lineStatus")}}</p>
+    <div  style="height:3.2rem;background:#283B52;border-radius:.18rem;position:relative;margin-top:.1rem;">
+      <p class="sub-title">{{$t("testStation.lineStatus")}}</p>
       <div  class="line-sign">
         <img src="../assets/line.png"  style="height:100%">
         <p 
@@ -75,16 +75,12 @@ export default {
         }],
       },
       lineStatusList:[
-        {name:'10.1',type:1,top:'23%',left:'1%'},
-        {name:'20.1',type:0,top:'23%',left:'7.5%'},
-        {name:'20.2',type:0,top:'23%',left:'10.5%'},
-        {name:'40.1',type:1,top:'23%',left:'13%'},
-        {name:'40.2',type:1,top:'23%',left:'15%'},
-        {name:'40.3',type:1,top:'23%',left:'17%'},
-        {name:'40.4',type:0,top:'23%',left:'19.5%'},
-        {name:'60.1',type:0,top:'23%',left:'22.5%'},
-        {name:'60.2',type:1,top:'23%',left:'25%'},
-        {name:'60.3',type:1,top:'23%',left:'27.5%'},
+        {name:'150.6',type:1,top:'66%',left:'31%'},
+        {name:'150.1',type:0,top:'66%',left:'39.5%'},
+        {name:'150.2',type:0,top:'66%',left:'48.5%'},
+        {name:'150.3',type:1,top:'66%',left:'57%'},
+        {name:'150.4',type:1,top:'66%',left:'66%'},
+        {name:'150.5',type:1,top:'66%',left:'75%'},
       ]
     }
   },
@@ -92,11 +88,8 @@ export default {
     Production,LineStatus,PlanInfo,Charts
   },
   mounted(){
-    this.chartsData = {...this.chartsData}
+    // this.chartsData = {...this.chartsData}
   },
-  computed:{
-  }
-  
 }
 </script>
 
@@ -105,7 +98,7 @@ export default {
   .line-sign{
     position:relative;
     text-align: center;
-    height: 276px;
+    height: 2.76rem;
     >img{
       height: 100%;
     }
@@ -118,30 +111,31 @@ export default {
   }
   .cicle-sign-container{
     position: absolute;
-    top: 115px;
-    right: 32px;
+    top: 1.15rem;
+    right: .32rem;
     >div{
-      margin-bottom: 50px;
+      margin-bottom: .5rem;
     }
   }
   .circle{
-    width:40px;
-    height:40px;
+    width:.4rem;
+    height:.4rem;
     background:#37C102;
     
     border-radius:50%;
     top:0;
     >span{
       position: absolute;
-      width: 200px;
-      height: 120px;
+      width: 2rem;
+      height: .6rem;
       display: none;
       color: #000;
-      font-size: 20px;
+      font-size: .2rem;
       background: #fff;
-      top: -120px;
-      left: -50px;
+      top: -1.2rem;
+      left: -0.5rem;
       text-align: center;
+      border-radius: .18rem;
     }
   }
   .cicle-sign{
@@ -149,8 +143,8 @@ export default {
     vertical-align: middle;
   }
   .cicle-sign-text{
-    font-size: 20px;
-    line-height: 22px;
-    margin-left: 20px;
+    font-size: .2rem;
+    line-height: .22rem;
+    margin-left: .2rem;
   }
 </style>
