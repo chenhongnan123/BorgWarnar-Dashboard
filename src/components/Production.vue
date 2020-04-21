@@ -28,7 +28,7 @@
                 :value="75"
                 color="#FF3800"
               >
-              <div style="width:1rem;color:#fff;font-size:.34rem;word-wrap: break-word;text-align: center;line-height: .4rem;">{{ 75.23+'%' }}</div>
+              <div style="width:1rem;color:#fff;font-size:.34rem;word-wrap: break-word;text-align: center;line-height: .4rem;">{{ 75.2+'%' }}</div>
               </v-progress-circular>
             </v-col>
           </v-row>

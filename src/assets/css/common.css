@@ -12,6 +12,10 @@ table { border-collapse:collapse; }
 html {overflow-y: scroll;} 
 .clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
 .clearfix { *zoom:1; }
+.row,.col{
+    margin: 0;
+    padding: 0;
+}
 .nowrap-one{
     white-space: nowrap;
     overflow: hidden;

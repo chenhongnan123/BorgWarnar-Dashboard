@@ -2,7 +2,7 @@
   <div style="height:100%;" class="line-status">
       <div class="sub-title">
         <span>{{$t(type+"Station.avgCt")}}</span>
-        <div class="time-moudle-container"><TimeMoudle/></div>
+        <div class="time-moudle-container"><TimeMoudle :languangeG='languangeG'/></div>
       </div>
     <div>
       <div style="margin-top:.2rem;">
@@ -34,8 +34,9 @@ export default {
             value: 90,
             color: '#FFA100',
             width: 2*count,
+            zIndex:100,
             label: {
-                text: 'IDEAL CT: 15',
+                text: 'IDEAL CT: 90',
                 align: 'center',
                 style: {
                     color: '#fff',
@@ -54,6 +55,11 @@ export default {
   },
   components:{
     TimeMoudle,Charts
+  },
+  computed:{
+    ...mapState({
+      languangeG: state => state.common.languangeG
+    }),
   },
 }
 </script>

@@ -30,7 +30,8 @@
         :key="key" 
         :style="{background:item.type?'#37C102':'#D0021B',top:item.top,left:item.left,position:'absolute'}" 
         class="circle">
-          <span>{{item.name}}<br/>{{item.type ? "NORMAL" : "ABNORMAL"}}</span>
+          <!-- <span>{{item.name}}<br/>{{item.type ? "NORMAL" : "ABNORMAL"}}</span> -->
+          <span>{{item.name}}</span>
         </p>
       </div>
       <div class="cicle-sign-container">
@@ -67,11 +68,14 @@ export default {
           categories: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
         },
         series: [{
-            name: '东京',
-            data: [7.0, 6.9, 9.5, 14.5]
+            name: 'PRODUCED',
+            data: [70, 69, 95, 145]
         }, {
-            name: '伦敦',
-            data: [3.9, 4.2, 5.7, 8.5]
+            name: 'REALISTIC',
+            data: [39, 42, 57, 85]
+        }, {
+            name: 'IDEAL CT',
+            data: [23, 32, 47, 65]
         }],
       },
       lineStatusList:[
@@ -102,12 +106,12 @@ export default {
     >img{
       height: 100%;
     }
-    .circle:hover{
-      background: #fff!important;
-      >span{
-        display: block;
-      }
-    }
+    // .circle:hover{
+    //   background: #fff!important;
+    //   >span{
+    //     display: block;
+    //   }
+    // }
   }
   .cicle-sign-container{
     position: absolute;
@@ -126,16 +130,17 @@ export default {
     top:0;
     >span{
       position: absolute;
-      width: 2rem;
-      height: .6rem;
-      display: none;
-      color: #000;
-      font-size: .2rem;
-      background: #fff;
-      top: -1.2rem;
-      left: -0.5rem;
+      width: 100%;
+      height:100%;
+      // display: none;
+      // color: #000;
+      font-size: .15rem;
+      // background: #fff;
+      top: 0.1rem;
+      left: 0rem;
       text-align: center;
       border-radius: .18rem;
+      z-index: 100;
     }
   }
   .cicle-sign{

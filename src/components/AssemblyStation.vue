@@ -30,7 +30,8 @@
         :key="key" 
         :style="{background:item.type?'#37C102':'#D0021B',top:item.top,left:item.left,position:'absolute'}" 
         class="circle">
-          <span>{{item.name}}<br/>{{item.type ? "NORMAL" : "ABNORMAL"}}</span>
+          <!-- <span>{{item.name}}<br/>{{item.type ? "NORMAL" : "ABNORMAL"}}</span> -->
+          <span>{{item.name}}</span>
         </p>
       </div>
       <div class="cicle-sign-container">
@@ -121,12 +122,12 @@ export default {
     >img{
       height: 100%;
     }
-    .circle:hover{
-      background: #fff!important;
-      >span{
-        display: block;
-      }
-    }
+    // .circle:hover{
+    //   background: #fff!important;
+    //   >span{
+    //     display: block;
+    //   }
+    // }
   }
   .cicle-sign-container{
     position: absolute;
@@ -145,16 +146,17 @@ export default {
     top:0;
     >span{
       position: absolute;
-      width: 2rem;
-      height: .6rem;
-      display: none;
-      color: #000;
-      font-size: .2rem;
-      background: #fff;
-      top: -1.2rem;
-      left: -0.5rem;
+      width: 100%;
+      height:100%;
+      // display: none;
+      // color: #000;
+      font-size: .15rem;
+      // background: #fff;
+      top: 0.1rem;
+      left: 0rem;
       text-align: center;
       border-radius: .18rem;
+      z-index: 100;
     }
   }
   .cicle-sign{
