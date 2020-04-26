@@ -2,15 +2,15 @@
   <div style="height:100%;" >
     <v-row  no-gutters style="height:3.2rem;">
         <v-col cols='4' style="height:3.2rem;padding-right:.1rem;">
-          <Production type='assembly'/>
+          <Production type='assembly' :reportData="assemblyReportData" />
         </v-col>
         <v-col cols='8'  style="height:3.2rem;">
-          <LineStatus type='assembly'/>
+          <LineStatus type='assembly' :reportData="assemblyReportData"/>
         </v-col>
     </v-row>
     <v-row  no-gutters style="height:3.2rem;margin-top:.1rem;">
         <v-col cols='4'  style="padding-right:.1rem;">
-          <PlanInfo type='assembly'/>
+          <PlanInfo type='assembly' :reportData="assemblyReportData"/>
         </v-col>
         <v-col cols='8' style="height:3.2rem;background:#283B52;border-radius:.18rem;">
           <div>
@@ -69,24 +69,27 @@ export default {
         },
         series: [{
             name: 'PRODUCED',
+            showInLegend:false,
             data: [70, 69, 95, 145]
         }, {
             name: 'REALISTIC',
+            showInLegend:false,
             data: [39, 42, 57, 85]
         }, {
             name: 'IDEAL CT',
+            showInLegend:false,
             data: [23, 32, 47, 65]
         }],
       },
       lineStatusList:[
         {name:'10.1',type:1,top:'23%',left:'20%'},
-        {name:'20.1',type:0,top:'23%',left:'25%'},
-        {name:'20.2',type:0,top:'23%',left:'28.5%'},
+        {name:'20.1',type:1,top:'23%',left:'25%'},
+        {name:'20.2',type:1,top:'23%',left:'28.5%'},
         {name:'40.1',type:1,top:'23%',left:'32%'},
         {name:'40.2',type:1,top:'23%',left:'34%'},
         {name:'40.3',type:1,top:'23%',left:'36%'},
-        {name:'40.4',type:0,top:'23%',left:'38.5%'},
-        {name:'60.1',type:0,top:'23%',left:'41%'},
+        {name:'40.4',type:1,top:'23%',left:'38.5%'},
+        {name:'60.1',type:1,top:'23%',left:'41%'},
         {name:'60.2',type:1,top:'23%',left:'44%'},
         {name:'60.3',type:1,top:'23%',left:'46.5%'},
         {name:'70.1',type:1,top:'23%',left:'49%'},
@@ -95,7 +98,7 @@ export default {
         {name:'70.4',type:1,top:'23%',left:'57%'},
         {name:'70.5',type:1,top:'23%',left:'60%'},
         {name:'75.1',type:1,top:'23%',left:'62%'},
-        {name:'80.5',type:1,top:'23%',left:'65%'},
+        {name:'80.1',type:1,top:'23%',left:'65%'},
         {name:'30.1',type:1,top:'66%',left:'20%'},
         {name:'30.2',type:1,top:'66%',left:'24%'},
       ]
@@ -108,6 +111,18 @@ export default {
     // this.chartsData = {...this.chartsData}
   },
   computed:{
+    ...mapState({
+      assemblyReportData: state => state.assemblyStation.assemblyReportData,
+    }),
+  },
+  watch:{
+    assemblyReportData(reportData){
+      this.lineStatusList.forEach((item)=>{
+        if(reportData[item.name] !== undefined){
+          item.type = reportData[item.name];
+        }
+      });
+    }
   }
   
 }

@@ -11,6 +11,7 @@ Highcharts.theme = {
     style: {
       fontFamily: 'Poppins',
     },
+    marginRight:200*count
   },
   credits: {
     enabled: false,
@@ -35,21 +36,21 @@ Highcharts.theme = {
     },
     
   },
-  legend: {
-    layout: 'vertical',
-    align: 'right',
-    verticalAlign: 'middle',
-    itemStyle: {
-      color: '#fff',
-      // width:100*count,
-      fontSize:20*count,
-      padding:120*count,
-      transform:'translateY(-5px)'
-    },
-    symbolPadding: 20*count,
-    x:-20*count
-    // symbolHeight:30,
-  },
+  // legend: {
+  //   layout: 'vertical',
+  //   align: 'right',
+  //   verticalAlign: 'middle',
+  //   itemStyle: {
+  //     color: '#fff',
+  //     // width:100*count,
+  //     fontSize:20*count,
+  //     padding:120*count,
+  //     transform:'translateY(-5px)'
+  //   },
+  //   symbolPadding: 20*count,
+  //   x:-20*count
+  //   // symbolHeight:30,
+  // },
   tooltip: {
     shared: true,
     useHTML: true,

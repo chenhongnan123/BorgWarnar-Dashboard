@@ -1,0 +1,23 @@
+{"reportData":
+    {    
+        "productionstatus" : 1,
+        "availability": 79.32,
+        "performance": 87.43,
+        "quality": 88.87,
+        "oee": 76.04,
+        "operator": "leiwei",
+        "producttype": "2",
+        "partname": "2",
+        "shiftplannedquantity": 250,
+        "dayplannedquantity": 300,
+        "totalproduction": 167,
+        "shift": "Shift 1",
+        "150.1": 1,
+        "150.2": 0,
+        "150.3": 1,
+        "150.4": 0,
+        "150.5": 1,
+        "150.6": 0,
+        "ordernumber" : 104521283
+    }
+}

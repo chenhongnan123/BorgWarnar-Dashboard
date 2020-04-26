@@ -6,6 +6,7 @@
       hide-delimiter-background
       show-arrows-on-hover
       :show-arrows="!isAutoRun"
+      :interval="interval"
       v-model="index"
     >
       <v-carousel-item >
@@ -28,9 +29,9 @@ export default {
   data(){
     return {
       carouselItemNum:0,
-      isAutoRun:false,
+      isAutoRun:true,
       timeout:null,
-      interval:1000,
+      interval:4000,
       index:0
     }
   },
@@ -40,13 +41,6 @@ export default {
     Charts,AssemblyStation,TestStation
   },
   watch:{
-    reportData(data){
-      clearTimeout(this.timeout);
-      this.carouselItemNum = Math.ceil(data.length/9);
-      this.timeout = setTimeout(()=>{
-        this.interval = 2000
-      },2000);
-    },
     index(val){
       console.log(val);
       val ? this.setTitle(this.$t("testStation.title")) : this.setTitle(this.$t("assemblyStation.title"));
@@ -64,7 +58,7 @@ export default {
       setTitle:'common/SET_TITLE'
     }),
     setAuto(){
-      console.log(111)
+      // console.log(111)
       this.isAutoRun = false;
       this.setAutoRun(false);
       clearTimeout(this.timeout)

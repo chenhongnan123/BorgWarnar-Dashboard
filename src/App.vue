@@ -39,6 +39,12 @@ html,body{
       padding: 0;
     }
   }
+  .row{
+    margin: 0;
+  }
+  .col{
+    padding: 0;
+  }
 }
 
 

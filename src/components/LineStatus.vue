@@ -2,7 +2,7 @@
   <div style="height:100%;" class="line-status">
       <div class="sub-title">
         <span>{{$t(type+"Station.avgCt")}}</span>
-        <div class="time-moudle-container"><TimeMoudle :languangeG='languangeG'/></div>
+        <div class="time-moudle-container"><TimeMoudle :languangeG="languangeG" :shift="reportData.shift" /></div>
       </div>
     <div>
       <div style="margin-top:.2rem;">
@@ -27,6 +27,7 @@ export default {
         },
         series: [{
             name: 'CT',
+            showInLegend:false,
             data: [70, 69, 95, 14.5]
         }],
         yAxis:{
@@ -49,7 +50,7 @@ export default {
       }
     }
   },
-  props:['type'],
+  props:['type','reportData'],
   mounted(){
     // this.chartsData = {...this.chartsData}
   },

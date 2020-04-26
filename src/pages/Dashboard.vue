@@ -6,7 +6,7 @@
 
 <script>
 import Carousel from '@/components/Carousel';
-import {  mapMutations } from 'vuex';
+import {  mapState, mapMutations ,mapActions } from 'vuex';
 export default {
   name: 'charts',
   components:{
@@ -16,9 +16,19 @@ export default {
     ...mapMutations({
       setTitle: 'common/SET_TITLE',
     }),
+    ...mapActions({
+      getAssemblyReportData: 'assemblyStation/GET_ASSEMBLYREPORTDATA',
+      getTestReportData: 'testStation/GET_TESTREPORTDATA',
+    }),
   },
   created(){
-    this.setTitle(this.$t("assemblyStation.title"))
+    this.setTitle(this.$t("assemblyStation.title"));
+    this.getAssemblyReportData();
+    this.getTestReportData();
+    setInterval(()=>{
+      this.getAssemblyReportData();
+      this.getTestReportData();
+    },3000)
   }
 }
 </script>

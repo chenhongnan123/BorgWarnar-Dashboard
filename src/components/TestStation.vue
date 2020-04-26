@@ -2,15 +2,15 @@
   <div style="height:100%;" >
     <v-row  no-gutters style="height:3.2rem;">
         <v-col cols='4'  style="height:3.2rem;padding-right:.1rem;">
-          <Production :type="'test'"/>
+          <Production :type="'test'" :reportData="testReportData"/>
         </v-col>
         <v-col cols='8'  style="height:3.2rem;">
-          <LineStatus type='test'/>
+          <LineStatus type='test' :reportData="testReportData"/>
         </v-col>
     </v-row>
     <v-row  no-gutters  style="height:3.2rem;margin-top:.1rem;">
         <v-col cols='4' style="height:3.2rem;padding-right:.1rem;">
-          <PlanInfo type='test'/>
+          <PlanInfo type='test' :reportData="testReportData"/>
         </v-col>
         <v-col cols='8' style="height:3.2rem;background:#283B52;border-radius:.18rem;">
           <div>
@@ -65,16 +65,19 @@ export default {
           // height:'17%'
         },
         xData:{
-          categories: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+          categories: ['一月', '二月', '三月',],
         },
         series: [{
             name: 'PRODUCED',
+            showInLegend:false,
             data: [70, 69, 95, 145]
         }, {
             name: 'REALISTIC',
+            showInLegend:false,
             data: [39, 42, 57, 85]
         }, {
             name: 'IDEAL CT',
+            showInLegend:false,
             data: [23, 32, 47, 65]
         }],
       },
@@ -92,8 +95,27 @@ export default {
     Production,LineStatus,PlanInfo,Charts
   },
   mounted(){
-    // this.chartsData = {...this.chartsData}
+    this.lineStatusList.forEach((item)=>{
+      if(this.testReportData[item.name] !== undefined){
+        item.type = this.testReportData[item.name];
+      }
+    });
   },
+  computed:{
+    ...mapState({
+      testReportData: state => state.testStation.testReportData,
+    }),
+  },
+  watch:{
+    assemblyReportData(reportData){
+      console.log(456)
+      this.lineStatusList.forEach((item)=>{
+        if(reportData[item.name] !== undefined){
+          item.type = reportData[item.name];
+        }
+      });
+    }
+  }
 }
 </script>
 

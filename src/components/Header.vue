@@ -1,7 +1,7 @@
 <template>
   <header>
     <img src="../assets/customerLogo.png" style="height:.5rem;"/>
-    <h2>{{title}}</h2>
+    <h2>{{title+$t("common.test")}}</h2>
     <img src="../assets/shopworx.png" style="height:100%;"/>
   </header>
 </template>
@@ -17,7 +17,7 @@ export default {
     })
   },
   mounted(){
-    // this.$i18n.locale = 'zh'
+    this.$i18n.locale = 'eh'
   }
 }
 </script>

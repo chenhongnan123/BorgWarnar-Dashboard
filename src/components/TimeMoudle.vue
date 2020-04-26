@@ -5,7 +5,7 @@
         <span>{{dateTime}}</span>
       </v-col>
       <v-col cols="3">
-        <span>Shift1</span>
+        <span>{{shift}}</span>
       </v-col>
       <v-col cols="3">
         <v-select
@@ -39,7 +39,7 @@ export default {
       }],
     }
   },
-  props:['languangeG'],
+  props:['languangeG','shift'],
   mounted(){
     this.languange = this.languangeG;
     setInterval(()=>{

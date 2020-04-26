@@ -6,11 +6,11 @@
       </p>
       <div style="position:relative;padding:.2rem;">
         <p>{{$t(type+"Station.planedQuantity")}}</p>
-        <h3>1000/2000</h3>
+        <h3>{{`${reportData.shiftplannedquantity}/${reportData.dayplannedquantity}`}}</h3>
         <p style="margin-top:.24rem;">{{$t(type+"Station.currentlyQuantity")}}</p>
-        <h3>892</h3>
+        <h3>{{reportData.totalproduction}}</h3>
         <p style="margin-top:.24rem;">{{type === "assembly" ? $t("assemblyStation.orderNumber") : $t("testStation.arAlarm")}}</p>
-        <h3>XXX980</h3>
+        <h3>{{reportData.ordernumber}}</h3>
         <div v-if="type === 'test'" style="position:absolute;top:1.95rem;right:1.5rem;">
           <p>{{$t("testStation.vfsAlarm")}}</p>
           <h3>892</h3>
@@ -27,7 +27,7 @@ export default {
     return {
     }
   },
-  props:['type'],
+  props:['type','reportData'],
   computed:{
   }
   

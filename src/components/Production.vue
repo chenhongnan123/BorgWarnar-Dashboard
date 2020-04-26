@@ -1,21 +1,21 @@
 <template>
   <div style="height:100%;" class="production">
-      <p class="d-flex justify-space-between" style="padding:0 .16rem;">
+      <p class="d-flex justify-space-between" :style="{padding:'0 .16rem',background:reportData.productionstatus ? '#37C102' : '#FF3800'}">
         <span>{{$t("common.production")}}</span>
-        <span>RUNNING</span>
+        <span>{{reportData.productionstatus ? "RUNNING" : "DOWN"}}</span>
       </p>
       <v-row justify="space-between" style="padding:.12rem 0 0 .16rem;">
         <v-col cols="6">
           <p>{{$t("common.availability")}}</p>
-          <h3>98.32%</h3>
+          <h3>{{reportData.availability}}</h3>
           <p style="margin-top:.28rem;">{{$t("common.performance")}}</p>
-          <h3>85.77%</h3>
+          <h3>{{reportData.performance}}</h3>
           <p style="margin-top:.2rem;">{{$t("common.quantity")}}</p>
-          <h3>80.49%</h3>
+          <h3>{{reportData.quality}}</h3>
         </v-col>
         <v-col cols="6">
           <p>{{$t("common.operator")}}</p>
-          <h3>Li Wei</h3>
+          <h3>{{reportData.operator}}</h3>
           <v-row style="margin-top:.2rem;">
             <v-col cols="2">
                <p>{{$t("common.oee")}}</p>
@@ -25,10 +25,10 @@
                 :rotate="-90"
                 :size="150*count"
                 :width="22*count"
-                :value="75"
+                :value="reportData.oee"
                 color="#FF3800"
               >
-              <div style="width:1rem;color:#fff;font-size:.34rem;word-wrap: break-word;text-align: center;line-height: .4rem;">{{ 75.2+'%' }}</div>
+              <div style="width:1rem;color:#fff;font-size:.34rem;word-wrap: break-word;text-align: center;line-height: .4rem;">{{reportData.oee}}%</div>
               </v-progress-circular>
             </v-col>
           </v-row>
@@ -46,7 +46,7 @@ export default {
       count:document.documentElement.clientWidth/1920
     }
   },
-  props:['type'],
+  props:['type','reportData'],
 }
 </script>
 
@@ -57,7 +57,6 @@ export default {
     border-radius: .18rem;
     >p{
       height: .44rem;
-      background:#37C102;
       border-radius: .08rem;
       font-size: .2rem;
       line-height: .44rem;
